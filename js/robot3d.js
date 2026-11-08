@@ -297,8 +297,9 @@ function init(host) {
     if (mode === 'auto') target = reduceMotion ? 0.25 : 0.25 + Math.sin(t * 0.45) * 0.75;
     rig.rotation.y += (target - rig.rotation.y) * 0.08;
     pitch += (targetPitch - pitch) * 0.08;
-    camera.position.set(0, 2.7 + Math.sin(pitch) * 14.5, Math.cos(pitch) * 14.5);
-    camera.lookAt(0, 2.55, 0);
+    const D = 8.4 * Math.max(1, 1 / camera.aspect), LX = -0.3, LY = 3.45;
+    camera.position.set(LX, LY + Math.sin(pitch) * D, Math.cos(pitch) * D);
+    camera.lookAt(LX, LY, 0);
 
     body.position.y = Math.sin(t * 1.4) * 0.05 + 0.05;
     ground.scale.setScalar(1 - Math.sin(t * 1.4) * 0.05);
