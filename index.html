@@ -29,18 +29,17 @@ a.btn-solid:hover{filter:brightness(1.12);color:#06231F}
 @keyframes rbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .rb-shadow{transform-box:fill-box;transform-origin:center;animation:rbShadow 4s ease-in-out infinite}
 @keyframes rbShadow{0%,100%{transform:scale(1);opacity:.28}50%{transform:scale(.8);opacity:.16}}
-.rb-eye{transform-box:fill-box;transform-origin:center;animation:rbBlink 5s infinite}
-@keyframes rbBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
-.rb-pulse{animation:rbPulse 2s ease-in-out infinite}
+.rb-pulse{animation:rbPulse 2.2s ease-in-out infinite}
 @keyframes rbPulse{0%,100%{opacity:.65}50%{opacity:1}}
-.rb-ring{transform-box:fill-box;transform-origin:center;animation:rbRing 2s ease-out infinite}
-@keyframes rbRing{0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.35);opacity:0}}
-.rb-wave{transform-box:view-box;transform-origin:236px 172px;animation:rbWave 3s ease-in-out infinite}
-@keyframes rbWave{0%,100%{transform:rotate(0)}15%{transform:rotate(-125deg)}28%{transform:rotate(-105deg)}41%{transform:rotate(-130deg)}54%{transform:rotate(-105deg)}67%{transform:rotate(-125deg)}85%{transform:rotate(0)}}
+.rb-glow{filter:drop-shadow(0 0 6px rgba(94,234,212,.9))}
+.rb-wave{transform-box:view-box;transform-origin:256px 186px;animation:rbWave 4s ease-in-out infinite}
+@keyframes rbWave{0%,100%{transform:rotate(0)}14%,80%{transform:rotate(-125deg)}92%{transform:rotate(0)}}
+.rb-fore{transform-box:view-box;transform-origin:257px 282px;animation:rbFore 4s ease-in-out infinite}
+@keyframes rbFore{0%,14%{transform:rotate(0)}24%{transform:rotate(24deg)}36%{transform:rotate(-14deg)}48%{transform:rotate(24deg)}60%{transform:rotate(-14deg)}72%{transform:rotate(20deg)}82%,100%{transform:rotate(0)}}
 .rb-spark{animation:rbSpark 3.5s ease-in-out infinite}
 .rb-s2{animation-delay:.8s}.rb-s3{animation-delay:1.6s}.rb-s4{animation-delay:2.4s}
 @keyframes rbSpark{0%,100%{transform:translateY(0);opacity:.2}50%{transform:translateY(-18px);opacity:1}}
-@media (prefers-reduced-motion:reduce){.aurora,.rb-float,.rb-shadow,.rb-eye,.rb-pulse,.rb-ring,.rb-wave,.rb-spark{animation:none}}
+@media (prefers-reduced-motion:reduce){.aurora,.rb-float,.rb-shadow,.rb-pulse,.rb-wave,.rb-fore,.rb-spark{animation:none}}
 a.btn-ghost{color:#fff;text-decoration:none;font-weight:600;padding:13px 24px;border-radius:10px;border:1px solid #3A4663;display:inline-block}
 a.btn-ghost:hover{border-color:#fff;color:#fff}
 
@@ -80,47 +79,66 @@ ACCELMATION
 
 <!-- robot + illustrative assistant panel -->
 <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;align-items:center">
-<svg class="rb" viewBox="0 0 320 400" role="img" aria-label="Animated futuristic humanoid robot waving" style="display:block;width:100%;max-width:300px;height:auto;overflow:visible;position:relative;z-index:1">
-<ellipse class="rb-shadow" cx="160" cy="390" rx="72" ry="8" fill="#5EEAD4" opacity="0.25"/>
-<circle class="rb-spark rb-s1" cx="48" cy="120" r="3" fill="#5EEAD4"/>
-<circle class="rb-spark rb-s2" cx="40" cy="250" r="2.5" fill="#5EEAD4"/>
-<circle class="rb-spark rb-s3" cx="282" cy="86" r="3" fill="#5EEAD4"/>
-<circle class="rb-spark rb-s4" cx="292" cy="300" r="2.5" fill="#5EEAD4"/>
+<svg class="rb" viewBox="0 0 360 450" role="img" aria-label="Animated futuristic humanoid robot waving" style="display:block;width:100%;max-width:320px;height:auto;overflow:visible;position:relative;z-index:1">
+<defs>
+<linearGradient id="rbShell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C9D0DC"/></linearGradient>
+<linearGradient id="rbHead" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B2230"/><stop offset="0.55" stop-color="#05070B"/><stop offset="1" stop-color="#0B0F18"/></linearGradient>
+</defs>
+<ellipse class="rb-shadow" cx="180" cy="444" rx="84" ry="8" fill="#5EEAD4" opacity="0.25"/>
+<circle class="rb-spark rb-s1" cx="52" cy="130" r="3" fill="#5EEAD4"/>
+<circle class="rb-spark rb-s2" cx="44" cy="280" r="2.5" fill="#5EEAD4"/>
+<circle class="rb-spark rb-s3" cx="318" cy="90" r="3" fill="#5EEAD4"/>
+<circle class="rb-spark rb-s4" cx="326" cy="330" r="2.5" fill="#5EEAD4"/>
 <g class="rb-float">
-<line x1="160" y1="24" x2="160" y2="48" stroke="#5EEAD4" stroke-width="3" stroke-linecap="round"/>
-<circle class="rb-pulse" cx="160" cy="18" r="7" fill="#5EEAD4"/>
-<rect x="98" y="76" width="12" height="30" rx="6" fill="#2A3452"/>
-<rect x="210" y="76" width="12" height="30" rx="6" fill="#2A3452"/>
-<rect x="108" y="48" width="104" height="84" rx="32" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
-<rect x="120" y="66" width="80" height="46" rx="22" fill="#0A0F1E"/>
-<ellipse class="rb-eye" cx="146" cy="89" rx="9" ry="10" fill="#5EEAD4"/>
-<ellipse class="rb-eye" cx="174" cy="89" rx="9" ry="10" fill="#5EEAD4"/>
-<rect x="148" y="132" width="24" height="14" rx="4" fill="#2A3452"/>
+<!-- legs -->
+<rect x="136" y="326" width="34" height="62" rx="17" fill="url(#rbShell)"/>
+<rect x="190" y="326" width="34" height="62" rx="17" fill="url(#rbShell)"/>
+<circle cx="153" cy="392" r="14" fill="#12161F" stroke="#3A4254" stroke-width="2"/>
+<circle cx="207" cy="392" r="14" fill="#12161F" stroke="#3A4254" stroke-width="2"/>
+<rect x="138" y="398" width="30" height="30" rx="14" fill="url(#rbShell)"/>
+<rect x="192" y="398" width="30" height="30" rx="14" fill="url(#rbShell)"/>
+<rect x="128" y="424" width="46" height="16" rx="8" fill="#0B0E14"/>
+<rect x="186" y="424" width="46" height="16" rx="8" fill="#0B0E14"/>
+<!-- hips -->
+<rect x="126" y="290" width="108" height="42" rx="18" fill="#0B0E14"/>
+<circle cx="154" cy="326" r="17" fill="#1A1F2B" stroke="#3A4254" stroke-width="2"/>
+<circle cx="206" cy="326" r="17" fill="#1A1F2B" stroke="#3A4254" stroke-width="2"/>
+<!-- static arm (viewer left) -->
 <g>
-<circle cx="84" cy="172" r="17" fill="#2A3452" stroke="#3A4A78" stroke-width="2"/>
-<rect x="70" y="172" width="28" height="68" rx="14" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
-<rect x="72" y="232" width="24" height="54" rx="12" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
-<circle cx="84" cy="294" r="12" fill="#2A3452"/>
-<path d="M84 186v40" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="76" y="198" width="38" height="80" rx="19" fill="url(#rbShell)"/>
+<rect x="80" y="272" width="30" height="24" rx="11" fill="#12161F"/>
+<rect x="78" y="290" width="34" height="72" rx="17" fill="url(#rbShell)"/>
+<rect x="84" y="356" width="22" height="16" rx="6" fill="#12161F"/>
+<rect x="82" y="368" width="26" height="30" rx="12" fill="#1A1F2B"/>
+<path d="M89 380v14M95 380v16M101 380v14" stroke="#4A5468" stroke-width="2" stroke-linecap="round"/>
 </g>
-<rect x="96" y="144" width="128" height="124" rx="36" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
-<rect x="124" y="170" width="72" height="58" rx="18" fill="#0A0F1E"/>
-<circle class="rb-ring" cx="160" cy="199" r="22" fill="none" stroke="#5EEAD4" stroke-width="2"/>
-<circle class="rb-pulse" cx="160" cy="199" r="13" fill="#5EEAD4"/>
-<path d="M110 232v26M210 232v26" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
-<rect x="122" y="266" width="76" height="16" rx="8" fill="#2A3452"/>
-<rect x="122" y="280" width="34" height="80" rx="16" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
-<rect x="164" y="280" width="34" height="80" rx="16" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
-<path d="M139 296v44M181 296v44" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
-<rect x="112" y="354" width="52" height="22" rx="11" fill="#2A3452"/>
-<rect x="156" y="354" width="52" height="22" rx="11" fill="#2A3452"/>
+<!-- torso -->
+<path d="M112 172 Q180 158 248 172 L240 270 Q180 284 120 270 Z" fill="url(#rbShell)"/>
+<path d="M118 174 L130 176 L134 266 L122 264 Z" fill="#0B0E14"/>
+<path d="M242 174 L230 176 L226 266 L238 264 Z" fill="#0B0E14"/>
+<rect x="122" y="262" width="116" height="30" rx="12" fill="#12161F"/>
+<circle class="rb-pulse" cx="180" cy="277" r="4" fill="#5EEAD4"/>
+<!-- neck + head -->
+<path d="M158 136 L202 136 L216 168 L144 168 Z" fill="#0B0E14"/>
+<path d="M180 20 C212 20 226 52 224 88 C222 120 206 140 180 144 C154 140 138 120 136 88 C134 52 148 20 180 20 Z" fill="url(#rbHead)"/>
+<path class="rb-pulse rb-glow" d="M160 32 C146 50 142 84 152 112 C158 126 170 136 190 138" fill="none" stroke="#5EEAD4" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M208 54 C211 70 211 92 207 108" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+<!-- shoulder caps -->
+<circle cx="104" cy="186" r="26" fill="url(#rbShell)"/>
+<path d="M86 174 Q104 160 122 174" fill="none" stroke="#0B0E14" stroke-width="6" stroke-linecap="round"/>
+<circle cx="256" cy="186" r="26" fill="url(#rbShell)"/>
+<!-- waving arm (viewer right), pivots at shoulder -->
 <g class="rb-wave">
-<circle cx="236" cy="172" r="17" fill="#2A3452" stroke="#3A4A78" stroke-width="2"/>
-<rect x="222" y="172" width="28" height="68" rx="14" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
-<rect x="224" y="232" width="24" height="54" rx="12" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
-<circle cx="236" cy="294" r="12" fill="#2A3452"/>
-<path d="M236 186v40" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="238" y="198" width="38" height="80" rx="19" fill="url(#rbShell)"/>
+<rect x="242" y="272" width="30" height="24" rx="11" fill="#12161F"/>
+<g class="rb-fore">
+<rect x="240" y="290" width="34" height="72" rx="17" fill="url(#rbShell)"/>
+<rect x="246" y="356" width="22" height="16" rx="6" fill="#12161F"/>
+<rect x="244" y="368" width="26" height="30" rx="12" fill="#1A1F2B"/>
+<path d="M251 380v14M257 380v16M263 380v14" stroke="#4A5468" stroke-width="2" stroke-linecap="round"/>
 </g>
+</g>
+<path d="M238 174 Q256 160 274 174" fill="none" stroke="#0B0E14" stroke-width="6" stroke-linecap="round"/>
 </g>
 </svg>
 
