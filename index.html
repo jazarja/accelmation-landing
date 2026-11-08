@@ -1,350 +1,461 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accelmation | AI agents, automation and analytics</title>
+<meta name="description" content="Accelmation builds agentic workflows on frontier models, connects them to your systems through MCP, and turns business data into the right information at the right time.">
+<meta name="author" content="Accelerated Information">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+section[id],div[id]{scroll-margin-top:16px}
 
-    <title>Accelerated Information</title>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;color:#0E1424;background:#F5F6F8}
+a{color:#0B6E6E}a:hover{color:#084F4F}
+a.nav{color:#C9D1E2;text-decoration:none;font-size:15px;padding:12px 4px}
+a.nav:hover{color:#fff}
+a.btn-solid{background:#5EEAD4;color:#06231F;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:10px;min-height:20px;display:inline-block}
+a.btn-solid:hover{filter:brightness(1.12);color:#06231F}
+.aurora{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform}
+.a1{width:60%;height:75%;left:-10%;top:-20%;background:radial-gradient(circle,#14B8A6 0%,rgba(20,184,166,0) 70%);animation:auroraA 14s ease-in-out infinite alternate}
+.a2{width:55%;height:80%;right:-10%;top:-15%;background:radial-gradient(circle,#6366F1 0%,rgba(99,102,241,0) 70%);animation:auroraB 18s ease-in-out infinite alternate}
+.a3{width:50%;height:60%;left:25%;bottom:-25%;background:radial-gradient(circle,#38BDF8 0%,rgba(56,189,248,0) 70%);animation:auroraC 22s ease-in-out infinite alternate}
+@keyframes auroraA{0%{transform:translate(0,0) scale(1)}50%{transform:translate(18%,12%) scale(1.15)}100%{transform:translate(8%,-10%) scale(.95)}}
+@keyframes auroraB{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-20%,15%) scale(1.2)}100%{transform:translate(-8%,-8%) scale(1)}}
+@keyframes auroraC{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-25%,-12%) scale(1.25)}100%{transform:translate(20%,-5%) scale(1)}}
+@media (prefers-reduced-motion:reduce){.aurora{animation:none}}
+a.btn-ghost{color:#fff;text-decoration:none;font-weight:600;padding:13px 24px;border-radius:10px;border:1px solid #3A4663;display:inline-block}
+a.btn-ghost:hover{border-color:#fff;color:#fff}
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="css/animate.css" rel="stylesheet"/>
-    <!-- Squad theme CSS -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="color/default.css" rel="stylesheet">
-
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:640px){h1{font-size:40px!important}h2{font-size:32px!important}}
+</style>
 </head>
+<body>
+<div style="font-family:'Inter',system-ui,sans-serif;background:#F5F6F8;color:#0E1424">
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-<!-- Preloader -->
-<div id="preloader">
-    <div id="load"></div>
+<!-- HERO -->
+<header style="background:#0E1424;color:#fff;position:relative;overflow:hidden">
+<div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+<div class="aurora a1"></div>
+<div class="aurora a2"></div>
+<div class="aurora a3"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,20,36,0) 55%,#0E1424 100%)"></div>
 </div>
-
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand" href="index.html">
-                <h1>ACCELERATED INFORMATION</h1>
-            </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#intro">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#service">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="http://www.xcs.co.id">XCS</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:1">
+<nav style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 32px;padding:20px 0">
+<a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:0.02em;min-height:44px">
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect width="28" height="28" rx="7" fill="#5EEAD4"/><path d="M8 20 L14 8 L20 20 M10.5 15.5 H17.5" stroke="#06231F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ACCELMATION
+</a>
+<div style="display:flex;flex-wrap:wrap;gap:4px 28px;align-items:center">
+<a class="nav" href="#ai">AI Services</a>
+<a class="nav" href="#services">Core Services</a>
+<a class="nav" href="#about">About</a>
+<a class="nav" href="#contact">Contact</a>
+</div>
 </nav>
 
-<!-- Section: intro -->
-<section id="intro" class="intro">
+<div id="top" style="display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding:72px 0 96px">
+<div style="flex:1 1 460px;min-width:0">
+<p style="margin:0 0 20px;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#5EEAD4">AI · Automation · Analytics</p>
+<h1 style="margin:0 0 24px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:60px;line-height:1.04;letter-spacing:-0.02em">Put AI to work on your business data.</h1>
+<p style="margin:0 0 36px;font-size:19px;line-height:1.6;color:#B4BDD0;max-width:540px">Accelmation builds agentic workflows on frontier models, wires them into your systems through MCP, and embeds forward-deployed engineers to turn raw data into the right information, at the moment your team needs it.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<a class="btn-solid" href="#ai">Explore AI services</a>
+<a class="btn-ghost" href="#contact">Talk to us</a>
+</div>
+</div>
 
-    <div class="slogan">
-        <h2>WELCOME TO <span class="text_color">ACCELMATION</span></h2>
-        <h4>Transform your business data into actionable information</h4>
-    </div>
-    <div class="page-scroll">
-        <a href="#service" class="btn btn-circle">
-            <i class="fa fa-angle-double-down animated"></i>
-        </a>
-    </div>
+<!-- illustrative assistant panel -->
+<div style="flex:1 1 380px;min-width:0">
+<div style="background:#161E35;border:1px solid #2A3452;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#AAB3C5">
+<span style="width:8px;height:8px;border-radius:50%;background:#5EEAD4;display:inline-block"></span>
+Business assistant · illustrative
+</div>
+<div style="align-self:flex-end;background:#25304F;border-radius:14px 14px 4px 14px;padding:12px 16px;font-size:15px;line-height:1.5;max-width:85%">Why did fulfilment slow down last quarter?</div>
+<div style="align-self:flex-start;background:#0E1424;border:1px solid #2A3452;border-radius:14px 14px 14px 4px;padding:14px 16px;font-size:15px;line-height:1.55;max-width:92%;color:#E3E8F3">
+Approvals are the bottleneck: most delay sits in one handoff between two teams. Rerouting that step is the biggest single gain.
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+<span style="font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid #3A4663;color:#AAB3C5">Process logs</span>
+<span style="font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid #3A4663;color:#AAB3C5">ERP</span>
+<span style="font-size:12px;padding:4px 10px;border-radius:99px;border:1px solid #3A4663;color:#AAB3C5">Knowledge base</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- FORMULA -->
+<section style="background:#fff;border-bottom:1px solid #E3E6EC">
+<div style="max-width:1200px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 20px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:22px">
+<span style="color:#4A5468;font-size:14px;font-family:'Inter',sans-serif;letter-spacing:0.1em;text-transform:uppercase;font-weight:600">Our formula</span>
+<span>Data</span><span style="color:#0B6E6E">+</span><span>Automation</span><span style="color:#0B6E6E">+</span><span>Analytics</span><span style="color:#0B6E6E">+</span><span>AI</span><span style="color:#0B6E6E">=</span><span style="color:#0B6E6E">Information</span>
+</div>
+<div style="max-width:1200px;margin:0 auto;padding:0 24px 32px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
+<span style="font-size:14px;padding:8px 14px;border-radius:99px;border:1px solid #CBD1DC;color:#364055">Frontier models</span>
+<span style="font-size:14px;padding:8px 14px;border-radius:99px;border:1px solid #CBD1DC;color:#364055">Model Context Protocol (MCP)</span>
+<span style="font-size:14px;padding:8px 14px;border-radius:99px;border:1px solid #CBD1DC;color:#364055">Agentic workflows</span>
+<span style="font-size:14px;padding:8px 14px;border-radius:99px;border:1px solid #CBD1DC;color:#364055">Tool use</span>
+<span style="font-size:14px;padding:8px 14px;border-radius:99px;border:1px solid #CBD1DC;color:#364055">Context engineering</span>
+<span style="font-size:14px;padding:8px 14px;border-radius:99px;border:1px solid #CBD1DC;color:#364055">Multi-agent orchestration</span>
+<span style="font-size:14px;padding:8px 14px;border-radius:99px;border:1px solid #CBD1DC;color:#364055">Evals</span>
+<span style="font-size:14px;padding:8px 14px;border-radius:99px;border:1px solid #CBD1DC;color:#364055">Guardrails</span>
+<span style="font-size:14px;padding:8px 14px;border-radius:99px;border:1px solid #CBD1DC;color:#364055">Human-in-the-loop</span>
+<span style="font-size:14px;padding:8px 14px;border-radius:99px;border:1px solid #CBD1DC;color:#364055">Forward-deployed engineers</span>
+</div>
 </section>
-<!-- /Section: intro -->
 
-<!-- Section: about -->
-<section id="about" class="home-section text-center">
-    <div class="heading-about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="wow bounceInDown" data-wow-delay="0.4s">
-                        <div class="section-heading">
-                            <h2>About Us</h2>
-                            <i class="fa fa-2x fa-angle-down"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
+<!-- CONCEPT -->
+<section id="concept" style="padding:104px 0 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px">
+<div style="background:#fff;border:1px solid #E3E6EC;border-radius:24px;padding:56px 48px">
+<p style="margin:0 0 12px;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#0B6E6E">Our concept</p>
+<h2 style="margin:0 0 16px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;line-height:1.1;letter-spacing:-0.01em;max-width:800px">Data is the new oil. It drives your process.</h2>
+<p style="margin:0 0 48px;font-size:18px;line-height:1.65;color:#4A5468;max-width:720px">Crude data has little value on its own. Refined and fed into your processes, it moves the business. Add AI, and those processes run on their own, faster and with less effort.</p>
 
-        <div class="row">
-            <div class="col-lg-2 col-lg-offset-5">
-                <hr class="marginbot-50">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="wow bounceInUp" data-wow-delay="0.2s">
-                    <p>At Accelerated Information (or Accelmation), we understand that business data, especially big data, is only valuable if it can be transformed into meaningful information.</p>
+<div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:16px">
 
-                    <p>As a seasoned IT consulting firm, our primary objective is to empower your business to grow faster and operate more efficiently by leveraging our IT solutions to boost revenue and reduce operational costs.</p>
+<div style="flex:1 1 260px;min-width:0;background:#F5F6F8;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0E1424" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 4.5 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-6.5 6-11z"/></svg>
+<span style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4A5468">01 · Fuel</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600">Data is the oil</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A5468">We acquire and refine your raw business data into clean, usable information.</p>
+</div>
 
-                    <h5>Our Formula: Data + Automation + Analytics = Information</h5>
+<div aria-hidden="true" style="flex:0 0 auto;align-self:center;color:#0B6E6E;font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;padding:0 4px">&rarr;</div>
 
-                    <p>Together, we can make your business information flow faster—accelerating your decision-making process by ensuring you have the right information at the right time.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<div style="flex:1 1 260px;min-width:0;background:#F5F6F8;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0E1424" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+<span style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#4A5468">02 · Engine</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600">Data drives your process</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A5468">Automation and analytics put that information into every step of how work gets done.</p>
+</div>
+
+<div aria-hidden="true" style="flex:0 0 auto;align-self:center;color:#0B6E6E;font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;padding:0 4px">&rarr;</div>
+
+<div style="flex:1 1 260px;min-width:0;background:#0E1424;color:#fff;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#5EEAD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>
+<span style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#AAB3C5">03 · Autopilot</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600">AI makes it autonomous</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#B4BDD0">AI decides, responds and acts inside the process, so it runs on its own and gets more efficient over time.</p>
+</div>
+
+</div>
+</div>
+</div>
 </section>
-<!-- /Section: about -->
 
-<!-- Section: services -->
-<section id="service" class="home-section text-center bg-gray">
+<!-- AI SERVICES -->
+<section id="ai" style="padding:104px 0 96px">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px">
+<p style="margin:0 0 12px;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#0B6E6E">AI services</p>
+<h2 style="margin:0 0 16px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;line-height:1.1;letter-spacing:-0.01em;max-width:760px">Practical AI, built around your data and your processes.</h2>
+<p style="margin:0 0 56px;font-size:18px;line-height:1.6;color:#4A5468;max-width:680px">Three ways we help teams move from experiments to AI that is useful every day.</p>
 
-    <div class="heading-about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="wow bounceInDown" data-wow-delay="0.4s">
-                        <div class="section-heading">
-                            <h2>Our Services</h2>
-                            <i class="fa fa-2x fa-angle-down"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-2 col-lg-offset-5">
-                <hr class="marginbot-50">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3 col-md-3">
-                <div class="wow fadeInLeft" data-wow-delay="0.2s">
-                    <div class="service-box">
-                        <div class="service-icon">
-						    <span class="fa-stack fa-4x">
-                                <i class="fa fa-archive fa-stack-1x"></i>
-                            </span>
-                        </div>
-                        <div class="service-desc">
-                            <h5>Document Management</h5>
-                            <p>Efficiently store, organize, protect, retrieve, and archive corporate documents and content using modern solutions tailored to enhance productivity and compliance.</p>
-                            <a href="document-management.html" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
 
-            <div class="col-sm-3 col-md-3">
-                <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-box">
-                        <div class="service-icon">
-                            <span class="fa-stack fa-4x">
-                                <i class="fa fa-print fa-stack-1x"></i>
-                            </span>
-                        </div>
-                        <div class="service-desc">
-                            <h5>Data Capture</h5>
-                            <p>Transform printed data into digital, actionable business information with our advanced data capture solutions, ensuring accuracy and efficiency in your operations.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div style="background:#0E1424;color:#fff;border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:16px">
+<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#5EEAD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8.2 7l7.6 .6M7 8.3l4 7.6M16.8 10.3l-3.6 5.8"/></svg>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600">AI Agents</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#B4BDD0">Agentic systems powered by frontier models that work inside your processes. They reach your data and tools through MCP, use tool calling and multi-agent orchestration to act on your behalf, and run with guardrails and human-in-the-loop approval.</p>
+</div>
 
-            <div class="col-sm-3 col-md-3">
-                <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-box">
-                        <div class="service-icon">
-                            <span class="fa-stack fa-4x">
-                                <i class="fa fa-dashboard fa-stack-1x"></i>
-                            </span>
-                        </div>
-                        <div class="service-desc">
-                            <h5>Business Automation</h5>
-                            <p>Leverage advanced Business Process Management (BPM) and Business Rules Management (BRM) technologies to enhance efficiency and streamline your business processes.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div style="background:#fff;border:1px solid #E3E6EC;border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:16px">
+<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#0B6E6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M5 16l4-5 3 3 6-8"/><circle cx="18" cy="6" r="1.5"/></svg>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600">AI-Powered Insights</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A5468">Frontier-model reasoning combined with predictive modeling and trend analysis, grounded in your data through context engineering, to deliver insights that inform strategic decisions.</p>
+</div>
 
-            <div class="col-sm-3 col-md-3">
-                <div class="wow fadeInRight" data-wow-delay="0.2s">
-                    <div class="service-box">
-                        <div class="service-icon">
-                            <span class="fa-stack fa-4x">
-                                <i class="fa fa-magic fa-stack-1x"></i>
-                            </span>
-                        </div>
-                        <div class="service-desc">
-                            <h5>Process Analytics</h5>
-                            <p>Utilize Process Mining techniques to analyze data from process logs, enabling you to optimize workflows for maximum efficiency and effectiveness.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-sm-3 col-md-3 col-sm-offset-3 col-md-offset-3">
-                <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-box">
-                        <div class="service-icon">
-                            <span class="fa-stack fa-4x">
-                                <i class="fa fa-cogs fa-stack-1x"></i>
-                            </span>
-                        </div>
-                        <div class="service-desc">
-                            <h5>AI Implementation (RAG)</h5>
-                            <p>Integrate cutting-edge AI solutions into your business with our Retrieval-Augmented Generation (RAG) services. Enhance data-driven decision-making through AI-powered tools that seamlessly combine information retrieval and content generation technologies.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div style="background:#fff;border:1px solid #E3E6EC;border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:16px">
+<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#0B6E6E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10h7M8.5 13h4"/></svg>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600">AI Chatbot Solutions</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A5468">Conversational assistants on frontier LLMs, grounded in your knowledge and connected to your systems via MCP tool calls, for instant, personalized responses and better support quality.</p>
+</div>
 
-            <div class="col-sm-3 col-md-3">
-                <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-box">
-                        <div class="service-icon">
-                            <span class="fa-stack fa-4x">
-                                <i class="fa fa-brain fa-stack-1x"></i>
-                            </span>
-                        </div>
-                        <div class="service-desc">
-                            <h5>AI-Powered Insights</h5>
-                            <p>Unlock the potential of your data with AI-driven analytics that provide actionable insights, predictive modeling, and trend analysis to inform strategic decisions.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3 col-md-3">
-                <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-box">
-                        <div class="service-icon">
-                            <span class="fa-stack fa-4x">
-                                <i class="fa fa-robot fa-stack-1x"></i>
-                            </span>
-                        </div>
-                        <div class="service-desc">
-                            <h5>AI Chatbot Solutions</h5>
-                            <p>Enhance customer engagement and support with our AI chatbot solutions, designed to provide instant responses and personalized interactions, improving user experience and operational efficiency.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+</div>
 </section>
-<!-- /Section: services -->
 
-<!-- Section: contact -->
-<section id="contact" class="home-section text-center">
-    <div class="heading-contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="wow bounceInDown" data-wow-delay="0.4s">
-                        <div class="section-heading">
-                            <h2>Get in Touch</h2>
-                            <i class="fa fa-2x fa-angle-down"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
+<!-- AI AGENT LANDSCAPE -->
+<section id="agents" style="background:#fff;border-top:1px solid #E3E6EC;padding:96px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px">
+<p style="margin:0 0 12px;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#0B6E6E">Types of AI agents</p>
+<h2 style="margin:0 0 16px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;line-height:1.1;letter-spacing:-0.01em;max-width:820px">Persistent, tool-using agents that run on your own hardware or cloud.</h2>
+<p style="margin:0 0 48px;font-size:18px;line-height:1.65;color:#4A5468;max-width:760px">Today's agents share one idea but come in distinct types, each differing in interface, where it runs and how it is deployed.</p>
 
-        <div class="row">
-            <div class="col-lg-2 col-lg-offset-5">
-                <hr class="marginbot-50">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="widget-contact">
-                    <h5>Legal</h5>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px">
 
-                    <p>Accelerated Information is a business unit of <a href="http://www.xcs.co.id">XCS</a>, specializing in Enterprise Content Management consulting and implementation across Southeast Asia.</p>
+<div style="background:#F5F6F8;border:1px solid #E3E6EC;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px">
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600">Self-improving agent</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#364055">A persistent agent that lives on your server. When it solves a new task, it saves the method as a reusable skill, so it never has to learn it twice. It keeps long-term memory, runs scheduled background jobs and works in a sandbox.</p>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.55;color:#364055">
+<div><strong>Reached through:</strong> many chat platforms, command line, desktop app</div>
+<div><strong>Runs on:</strong> a local terminal, hardened container or remote server</div>
+</div>
+<p style="margin:0;font-size:14px;line-height:1.55;color:#4A5468;border-top:1px solid #DDE1E8;padding-top:12px"><strong style="color:#0E1424">Best suited for</strong> complex, multi-step automations that should get better over time, and teams that want an agent building its own skill library.</p>
+</div>
 
-                    <p>Accelerated Information operates under PT XCELERA SOLUSINDO, a legally registered private company in Indonesia.</p>
-                </div>
-            </div>
+<div style="background:#F5F6F8;border:1px solid #E3E6EC;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px">
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600">Messaging assistant</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#364055">A lightweight personal assistant that turns the chat apps you already use into a control center. It learns new integrations from skills you define or install, and runs local workflows.</p>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.55;color:#364055">
+<div><strong>Reached through:</strong> everyday messaging apps</div>
+<div><strong>Runs on:</strong> your own machine and workspace</div>
+</div>
+<p style="margin:0;font-size:14px;line-height:1.55;color:#4A5468;border-top:1px solid #DDE1E8;padding-top:12px"><strong style="color:#0E1424">Best suited for</strong> individuals who want quick scripts, lookups and notifications from a chat. It relies on local system access, so permissions need careful scoping.</p>
+</div>
 
-            <div class="col-lg-4">
-                <div class="widget-contact">
-                    <h5>Main Office</h5>
+<div style="background:#F5F6F8;border:1px solid #E3E6EC;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px">
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600">Background coworker agent</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#364055">An always-on agent with its own virtual desktop, reacting to events and working toward long-term goals, then asking a person to approve key steps.</p>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.55;color:#364055">
+<div><strong>Reached through:</strong> web dashboard, voice, team chat</div>
+<div><strong>Runs on:</strong> a sandboxed virtual desktop with browser and terminal</div>
+</div>
+<p style="margin:0;font-size:14px;line-height:1.55;color:#4A5468;border-top:1px solid #DDE1E8;padding-top:12px"><strong style="color:#0E1424">Best suited for</strong> long-running work that needs a browser and terminal, with a human approving along the way.</p>
+</div>
 
-                    <img src="img/logo.png"><br/><br/>
+<div style="background:#F5F6F8;border:1px solid #E3E6EC;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px">
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600">Personal productivity workspace</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#364055">An all-in-one dashboard for one person, combining web browsing, file management and the context of their own apps.</p>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.55;color:#364055">
+<div><strong>Reached through:</strong> a web dashboard</div>
+<div><strong>Runs on:</strong> a local workspace with browser automation</div>
+</div>
+<p style="margin:0;font-size:14px;line-height:1.55;color:#4A5468;border-top:1px solid #DDE1E8;padding-top:12px"><strong style="color:#0E1424">Best suited for</strong> individuals who want one place to browse, manage files and delegate everyday tasks.</p>
+</div>
 
-                    <address>
-                        <strong>Accelerated Information</strong><br>
+<div style="background:#F5F6F8;border:1px solid #E3E6EC;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px">
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600">Enterprise agent platform</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#364055">A host for custom-built agents, designed for security: strict role-based access, gateways that fail closed, and every agent isolated in its own container to prevent data leaks between tenants.</p>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.55;color:#364055">
+<div><strong>Reached through:</strong> a web console and enterprise dashboards</div>
+<div><strong>Runs on:</strong> an isolated micro-container per agent instance</div>
+</div>
+<p style="margin:0;font-size:14px;line-height:1.55;color:#4A5468;border-top:1px solid #DDE1E8;padding-top:12px"><strong style="color:#0E1424">Best suited for</strong> enterprise teams deploying custom agents that need strong isolation and strict role-based access control.</p>
+</div>
 
-                        PT XCELERA SOLUSINDO<br>
+<div style="background:#0E1424;color:#fff;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px">
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600">How they differ</h3>
+<div>
+<p style="margin:0 0 4px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5EEAD4">Interface</p>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#B4BDD0">Some live in the chat channels you already use. Others offer rich web interfaces with virtual desktops and control panels.</p>
+</div>
+<div>
+<p style="margin:0 0 4px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5EEAD4">Self-improvement</p>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#B4BDD0">Some write their own skills as they learn. Others use skills defined by people, or built into the agent before it runs.</p>
+</div>
+<div>
+<p style="margin:0 0 4px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5EEAD4">Security</p>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#B4BDD0">From local system access that needs careful scoping, to sandboxes, to full enterprise isolation with role-based access.</p>
+</div>
+</div>
 
-                        Ruko Garden Shopping Arcade Blok B/8DH<br>
-                        Jalan Letjen. S. Parman Jakarta Barat 11420<br>
-                        DKI Jakarta, Indonesia<br>
-                    </address>
-
-                    <address>
-                        <strong>Email</strong><br>
-                        <a href="mailto:hello@accelmation.com">hello@accelmation.com</a>
-                    </address>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
+</div>
+</div>
 </section>
-<!-- /Section: contact -->
 
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-lg-12">
-                <div class="wow shake" data-wow-delay="0.4s">
-                    <div class="page-scroll marginbot-30">
-                        <a href="#intro" id="totop" class="btn btn-circle">
-                            <i class="fa fa-angle-double-up animated"></i>
-                        </a>
-                    </div>
-                </div>
-                <p>&copy;Copyright 2010-2026 - Accelerated Information. All rights reserved.</p>
-            </div>
-        </div>
-    </div>
-</footer>
+<!-- CORE SERVICES -->
+<section id="services" style="background:#fff;border-top:1px solid #E3E6EC;border-bottom:1px solid #E3E6EC;padding:96px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px">
+<p style="margin:0 0 12px;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#0B6E6E">Core services</p>
+<h2 style="margin:0 0 48px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.01em;max-width:700px">The foundations AI runs on.</h2>
 
-<!-- Core JavaScript Files -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/jquery.scrollTo.js"></script>
-<script src="js/wow.min.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="js/custom.js"></script>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+
+<div style="border-top:3px solid #0E1424;padding-top:24px;display:flex;flex-direction:column;gap:12px">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0E1424" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="2.5"/><path d="M4 5.5v6c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-6M4 11.5v6c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-6"/></svg>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600">Data Acquisition</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A5468">Bring raw data in from printed material and other sources and turn it into digital, actionable business information, with accuracy and efficiency.</p>
+</div>
+
+<div style="border-top:3px solid #0E1424;padding-top:24px;display:flex;flex-direction:column;gap:12px">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0E1424" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600">Business Automation</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A5468">Agentic workflows and intelligent process automation that orchestrate people, systems and AI agents to streamline how work gets done.</p>
+</div>
+
+<div style="border-top:3px solid #0E1424;padding-top:24px;display:flex;flex-direction:column;gap:12px">
+<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0E1424" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="19" cy="8" r="2"/><path d="M6.7 7.3L10.8 16.4M13.8 17l4-7.5M7 6.3l10 1.5"/></svg>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600">Process Analytics</h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A5468">Process Mining on your process logs to find where workflows slow down and optimize them for maximum effectiveness.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- AUTOMATION TO AI DECISIONS -->
+<section id="journey" style="padding:104px 0 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px">
+<p style="margin:0 0 12px;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#0B6E6E">From automation to AI</p>
+<h2 style="margin:0 0 16px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;line-height:1.1;letter-spacing:-0.01em;max-width:800px">Business automation is the first step toward AI-powered decisions.</h2>
+<p style="margin:0 0 48px;font-size:18px;line-height:1.65;color:#4A5468;max-width:720px">Each stage builds on the one before it. Automated processes produce the data, analytics reveal how they really work, and AI uses both to decide.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+
+<div style="background:#fff;border:1px solid #E3E6EC;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<span style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:#0B6E6E;line-height:1">1</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600">Automate</h3>
+<p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4A5468">Business Automation</p>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A5468">Agentic workflows and intelligent process automation turn manual steps and fixed rules into workflows that run consistently, and every run leaves a trail of data.</p>
+</div>
+
+<div style="background:#fff;border:1px solid #E3E6EC;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<span style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:#0B6E6E;line-height:1">2</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600">Understand</h3>
+<p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4A5468">Process Analytics</p>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A5468">Process mining reads those logs to show where work really flows, where it stalls and what is worth improving.</p>
+</div>
+
+<div style="background:#fff;border:1px solid #E3E6EC;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<span style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:#0B6E6E;line-height:1">3</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600">Predict</h3>
+<p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4A5468">AI-Powered Insights</p>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#4A5468">AI models learn from the history of your processes to forecast outcomes and flag trends before they become problems.</p>
+</div>
+
+<div style="background:#0E1424;color:#fff;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<span style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:#5EEAD4;line-height:1">4</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600">Decide</h3>
+<p style="margin:0;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#AAB3C5">AI-Powered Decisions</p>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#B4BDD0">AI recommends, and where you allow it, takes the next action inside the workflow. Rules still set the guardrails.</p>
+</div>
+
+</div>
+
+<p style="margin:32px 0 0;font-size:16px;line-height:1.65;color:#364055;max-width:760px">In short, automation gives AI the structure to act within, and AI gives automation the judgment that fixed rules lack.</p>
+</div>
+</section>
+
+<!-- SELF-OPTIMIZING LOOP -->
+<section id="loop" style="padding:104px 0 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px">
+<div style="background:#0E1424;color:#fff;border-radius:24px;padding:56px 48px;position:relative;overflow:hidden">
+<p style="margin:0 0 12px;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#5EEAD4">Process analytics, evolved</p>
+<h2 style="margin:0 0 16px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;line-height:1.1;letter-spacing:-0.01em;max-width:820px">From analyzing processes to processes that tune themselves.</h2>
+<p style="margin:0 0 48px;font-size:18px;line-height:1.65;color:#B4BDD0;max-width:740px">Process analytics used to end in a report. With AI it becomes a closed loop: the process is observed, learned from, adjusted and observed again, so it keeps improving without waiting for the next review.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+
+<div style="background:#161E35;border:1px solid #2A3452;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
+<span style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5EEAD4">Observe</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600">Process mining</h3>
+<p style="margin:0;font-size:15px;line-height:1.65;color:#B4BDD0">Continuous analysis of process logs shows how work actually flows.</p>
+</div>
+
+<div style="background:#161E35;border:1px solid #2A3452;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
+<span style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5EEAD4">Learn</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600">Self-reinforcing AI</h3>
+<p style="margin:0;font-size:15px;line-height:1.65;color:#B4BDD0">Models learn from each outcome, reinforcing what works and dropping what does not.</p>
+</div>
+
+<div style="background:#161E35;border:1px solid #2A3452;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
+<span style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5EEAD4">Tune</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600">Self-tuning</h3>
+<p style="margin:0;font-size:15px;line-height:1.65;color:#B4BDD0">Rules, thresholds and routing adjust automatically, within limits you set.</p>
+</div>
+
+<div style="background:#161E35;border:1px solid #2A3452;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
+<span style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5EEAD4">Optimize</span>
+<h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600">Self-optimization</h3>
+<p style="margin:0;font-size:15px;line-height:1.65;color:#B4BDD0">The improved process runs, and its results feed the next round of analysis.</p>
+</div>
+
+</div>
+
+<div style="margin-top:20px;display:flex;align-items:center;gap:14px;padding:16px 20px;border:1px dashed #3A4663;border-radius:12px;color:#E3E8F3;font-size:15px;line-height:1.5">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5EEAD4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><path d="M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5M20 12a8 8 0 0 1-14 5.3L4 15M4 20v-5h5"/></svg>
+<span>The loop never stops: every optimization becomes new data for the next cycle, with people in control of the guardrails.</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- HOW WE WORK -->
+<section id="how" style="padding:104px 0 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px">
+<div style="display:flex;flex-wrap:wrap;gap:48px 64px;align-items:flex-start">
+<div style="flex:1 1 380px;min-width:0">
+<p style="margin:0 0 12px;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#0B6E6E">How we work</p>
+<h2 style="margin:0 0 16px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;line-height:1.1;letter-spacing:-0.01em">Forward-deployed engineers, embedded in your team.</h2>
+<p style="margin:0;font-size:18px;line-height:1.65;color:#4A5468">Frontier models are only as useful as the systems around them. Our forward-deployed engineers work inside your business to connect models to your data, tools and workflows, and keep them reliable in production.</p>
+</div>
+<div style="flex:1 1 440px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+<div style="background:#fff;border:1px solid #E3E6EC;border-radius:16px;padding:24px">
+<h3 style="margin:0 0 8px;font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600">Model selection</h3>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#4A5468">We match frontier or open-weight models to each task, balancing capability, latency and cost.</p>
+</div>
+<div style="background:#fff;border:1px solid #E3E6EC;border-radius:16px;padding:24px">
+<h3 style="margin:0 0 8px;font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600">MCP integration</h3>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#4A5468">MCP servers expose your systems and data to agents as governed tools.</p>
+</div>
+<div style="background:#fff;border:1px solid #E3E6EC;border-radius:16px;padding:24px">
+<h3 style="margin:0 0 8px;font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600">Evals and guardrails</h3>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#4A5468">Evaluation suites and guardrails measure quality and keep agents inside agreed limits.</p>
+</div>
+<div style="background:#fff;border:1px solid #E3E6EC;border-radius:16px;padding:24px">
+<h3 style="margin:0 0 8px;font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600">Human-in-the-loop</h3>
+<p style="margin:0;font-size:15px;line-height:1.6;color:#4A5468">People approve the high-stakes steps, while agents handle the routine ones.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding:104px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:48px 80px">
+<div style="flex:1 1 360px;min-width:0">
+<p style="margin:0 0 12px;font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#0B6E6E">About us</p>
+<h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.01em">Data only matters once it becomes information.</h2>
+</div>
+<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:20px;font-size:18px;line-height:1.7;color:#364055">
+<p style="margin:0">At Accelerated Information (Accelmation), we understand that business data, especially big data, is only valuable if it can be transformed into meaningful information.</p>
+<p style="margin:0">As a seasoned IT consulting firm, our objective is to help your business grow faster and operate more efficiently, using IT solutions that boost revenue and reduce operational costs.</p>
+<p style="margin:0">Together, we can make your information flow faster, accelerating decisions by putting the right information in front of you at the right time.</p>
+</div>
+</div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section id="contact" style="background:#0E1424;color:#fff;padding:96px 0 40px">
+<div style="max-width:1200px;margin:0 auto;padding:0 24px">
+<div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;padding-bottom:72px;border-bottom:1px solid #2A3452">
+<h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;line-height:1.1;letter-spacing:-0.01em;max-width:620px">Ready to see what AI can do with your data?</h2>
+<a class="btn-solid" href="mailto:hello@accelmation.com">hello@accelmation.com</a>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:40px 64px;padding:56px 0;font-size:15px;line-height:1.7;color:#B4BDD0">
+<div style="flex:1 1 300px;min-width:0">
+<h3 style="margin:0 0 12px;font-family:'Space Grotesk',sans-serif;font-size:18px;color:#fff">Main office</h3>
+<address style="font-style:normal">
+<strong style="color:#fff">Accelerated Information</strong><br>
+PT XCELERA SOLUSINDO<br>
+Ruko Garden Shopping Arcade Blok B/8DH<br>
+Jalan Letjen. S. Parman, Jakarta Barat 11420<br>
+DKI Jakarta, Indonesia
+</address>
+</div>
+<div style="flex:2 1 400px;min-width:0">
+<h3 style="margin:0 0 12px;font-family:'Space Grotesk',sans-serif;font-size:18px;color:#fff">Legal</h3>
+<p style="margin:0 0 12px">Accelerated Information is a business unit of <a href="http://www.xcs.co.id" style="color:#5EEAD4">XCS</a>, specializing in IT consulting and implementation across Southeast Asia.</p>
+<p style="margin:0">Accelerated Information operates under PT XCELERA SOLUSINDO, a legally registered private company in Indonesia.</p>
+</div>
+</div>
+<p style="margin:0;font-size:13px;color:#9AA4BA">&copy; 2010-2026 Accelerated Information. All rights reserved.</p>
+</div>
+</section>
+
+</div>
 
 </body>
-
 </html>
