@@ -25,6 +25,10 @@ a.btn-solid:hover{filter:brightness(1.12);color:#06231F}
 @keyframes auroraA{0%{transform:translate(0,0) scale(1)}50%{transform:translate(18%,12%) scale(1.15)}100%{transform:translate(8%,-10%) scale(.95)}}
 @keyframes auroraB{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-20%,15%) scale(1.2)}100%{transform:translate(-8%,-8%) scale(1)}}
 @keyframes auroraC{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-25%,-12%) scale(1.25)}100%{transform:translate(20%,-5%) scale(1)}}
+.rb-btn{font:inherit;font-size:14px;font-weight:600;color:#C9D1E2;background:rgba(14,20,36,.6);border:1px solid #3A4663;border-radius:99px;padding:11px 16px;min-height:44px;cursor:pointer}
+.rb-btn:hover{color:#fff;border-color:#fff}
+.rb-btn[aria-pressed="true"]{color:#06231F;background:#5EEAD4;border-color:#5EEAD4}
+.rb-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .rb-float{animation:rbFloat 4s ease-in-out infinite}
 @keyframes rbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .rb-shadow{transform-box:fill-box;transform-origin:center;animation:rbShadow 4s ease-in-out infinite}
@@ -79,7 +83,9 @@ ACCELMATION
 
 <!-- robot + illustrative assistant panel -->
 <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;align-items:center">
-<svg class="rb" viewBox="0 0 360 450" role="img" aria-label="Animated futuristic humanoid robot waving" style="display:block;width:100%;max-width:320px;height:auto;overflow:visible;position:relative;z-index:1">
+<div id="robot3d" data-accent="#5EEAD4" style="width:100%;max-width:360px;position:relative;z-index:1">
+<div data-robot-stage style="position:relative;width:100%;aspect-ratio:4/5">
+<svg class="rb" viewBox="0 0 360 450" role="img" aria-label="Animated futuristic humanoid robot waving" style="display:block;width:100%;max-width:320px;height:auto;margin:0 auto;overflow:visible;position:relative;z-index:1">
 <defs>
 <linearGradient id="rbShell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C9D0DC"/></linearGradient>
 <linearGradient id="rbHead" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B2230"/><stop offset="0.55" stop-color="#05070B"/><stop offset="1" stop-color="#0B0F18"/></linearGradient>
@@ -141,6 +147,12 @@ ACCELMATION
 <path d="M238 174 Q256 160 274 174" fill="none" stroke="#0B0E14" stroke-width="6" stroke-linecap="round"/>
 </g>
 </svg>
+</div>
+<div data-robot-controls hidden role="group" aria-label="Robot view" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:4px">
+<span style="font-size:13px;color:#AAB3C5;margin-right:4px">Drag to rotate</span>
+<button type="button" class="rb-btn" data-view="auto" aria-pressed="false">Auto</button><button type="button" class="rb-btn" data-view="front" aria-pressed="false">Front</button><button type="button" class="rb-btn" data-view="side" aria-pressed="false">Side</button><button type="button" class="rb-btn" data-view="back" aria-pressed="false">Back</button>
+</div>
+</div>
 
 <div style="background:rgba(22,30,53,0.92);border:1px solid #2A3452;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px;width:100%;max-width:440px;margin-top:12px;position:relative;z-index:2">
 <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#AAB3C5">
@@ -514,5 +526,6 @@ DKI Jakarta, Indonesia
 
 </div>
 
+<script type="module" src="js/robot3d.js"></script>
 </body>
 </html>
