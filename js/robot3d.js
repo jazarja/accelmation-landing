@@ -139,15 +139,18 @@ function init(host) {
   scene.add(ground);
 
   // views
-  const views = { front: 0.0, side: -Math.PI / 2, back: Math.PI };
+  const views = { front: [0, 0.12], side: [-Math.PI / 2, 0.12], back: [Math.PI, 0.12], top: [0.5, 0.85] };
   let mode = 'auto';
   let target = 0.25;
   let dragging = false;
   let lastX = 0;
+  let lastY = 0;
+  let pitch = 0.12;
+  let targetPitch = 0.12;
 
   const setMode = (m) => {
     mode = m;
-    if (views[m] !== undefined) target = views[m];
+    if (views[m]) { target = views[m][0]; targetPitch = views[m][1]; } else if (m === 'auto') targetPitch = 0.12;
     controls?.querySelectorAll('button[data-view]').forEach((b) => {
       b.setAttribute('aria-pressed', String(b.dataset.view === m));
     });
@@ -155,7 +158,7 @@ function init(host) {
 
   const el = renderer.domElement;
   el.addEventListener('pointerdown', (e) => {
-    dragging = true; lastX = e.clientX; el.setPointerCapture(e.pointerId);
+    dragging = true; lastX = e.clientX; lastY = e.clientY; targetPitch = pitch; el.setPointerCapture(e.pointerId);
     el.style.cursor = 'grabbing';
     mode = 'drag'; target = rig.rotation.y;
     controls?.querySelectorAll('button[data-view]').forEach((b) => b.setAttribute('aria-pressed', 'false'));
@@ -163,7 +166,9 @@ function init(host) {
   el.addEventListener('pointermove', (e) => {
     if (!dragging) return;
     target += (e.clientX - lastX) * 0.012;
+    targetPitch = Math.min(Math.max(targetPitch + (e.clientY - lastY) * 0.01, -0.2), 1.45);
     lastX = e.clientX;
+    lastY = e.clientY;
   });
   const endDrag = () => { dragging = false; el.style.cursor = 'grab'; };
   el.addEventListener('pointerup', endDrag);
@@ -201,10 +206,14 @@ function init(host) {
 
     if (mode === 'auto') target = reduceMotion ? 0.25 : 0.25 + Math.sin(t * 0.45) * 0.75;
     rig.rotation.y += (target - rig.rotation.y) * 0.08;
+    pitch += (targetPitch - pitch) * 0.08;
+    camera.position.set(0.5, 2.15 + Math.sin(pitch) * 13.5, Math.cos(pitch) * 13.5);
+    camera.lookAt(0.5, 2.15, 0);
 
     body.position.y = Math.sin(t * 1.5) * 0.06 + 0.06;
     ground.scale.setScalar(1 - Math.sin(t * 1.5) * 0.05);
     head.rotation.y = Math.sin(t * 0.9) * 0.08;
+    head.rotation.x = pitch * 0.3;
 
     const p = (t % 4) / 4;
     const raise = smooth(0, 0.14, p) * (1 - smooth(0.8, 0.92, p));
