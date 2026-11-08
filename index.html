@@ -6,6 +6,8 @@
 <title>Accelmation | AI agents, automation and analytics</title>
 <meta name="description" content="Accelmation builds agentic workflows on frontier models, connects them to your systems through MCP, and turns business data into the right information at the right time.">
 <meta name="author" content="Accelerated Information">
+<link rel="modulepreload" href="js/three.module.min.js">
+<link rel="modulepreload" href="js/robot3d.js">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -25,10 +27,8 @@ a.btn-solid:hover{filter:brightness(1.12);color:#06231F}
 @keyframes auroraA{0%{transform:translate(0,0) scale(1)}50%{transform:translate(18%,12%) scale(1.15)}100%{transform:translate(8%,-10%) scale(.95)}}
 @keyframes auroraB{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-20%,15%) scale(1.2)}100%{transform:translate(-8%,-8%) scale(1)}}
 @keyframes auroraC{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-25%,-12%) scale(1.25)}100%{transform:translate(20%,-5%) scale(1)}}
-.rb-btn{font:inherit;font-size:14px;font-weight:600;color:#C9D1E2;background:rgba(14,20,36,.6);border:1px solid #3A4663;border-radius:99px;padding:11px 16px;min-height:44px;cursor:pointer}
-.rb-btn:hover{color:#fff;border-color:#fff}
-.rb-btn[aria-pressed="true"]{color:#06231F;background:#5EEAD4;border-color:#5EEAD4}
-.rb-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+#robot3d svg.rb{opacity:0;transition:opacity .4s}
+#robot3d[data-state="failed"] svg.rb{opacity:1}
 .hero-text{flex:0 1 540px;min-width:0;position:relative;z-index:2}
 .hero-robot{position:absolute;top:0;bottom:0;right:0;width:75%;z-index:1}
 @media (max-width:900px){.hero-row{flex-direction:column;align-items:stretch!important;min-height:0!important}.hero-robot{position:relative;width:100%;height:520px;margin-top:24px}}
@@ -150,10 +150,6 @@ ACCELMATION
 <path d="M238 174 Q256 160 274 174" fill="none" stroke="#0B0E14" stroke-width="6" stroke-linecap="round"/>
 </g>
 </svg>
-</div>
-<div data-robot-controls hidden role="group" aria-label="Robot view" style="position:absolute;left:0;right:0;bottom:8px;z-index:3;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center">
-<span style="font-size:13px;color:#AAB3C5;margin-right:4px">Drag to rotate</span>
-<button type="button" class="rb-btn" data-view="auto" aria-pressed="false">Auto</button><button type="button" class="rb-btn" data-view="front" aria-pressed="false">Front</button><button type="button" class="rb-btn" data-view="side" aria-pressed="false">Side</button><button type="button" class="rb-btn" data-view="back" aria-pressed="false">Back</button><button type="button" class="rb-btn" data-view="top" aria-pressed="false">Top</button>
 </div>
 </div>
 
@@ -514,6 +510,7 @@ DKI Jakarta, Indonesia
 
 </div>
 
-<script type="module" src="js/robot3d.js"></script>
+<script type="module" src="js/robot3d.js" onerror="document.getElementById('robot3d').dataset.state='failed'"></script>
+<script>setTimeout(function(){var h=document.getElementById('robot3d');if(h&&!h.dataset.ready)h.dataset.state='failed'},8000)</script>
 </body>
 </html>

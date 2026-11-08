@@ -7,7 +7,9 @@ const host = document.getElementById('robot3d');
 if (host) {
   try {
     init(host);
+    host.dataset.ready = '1';
   } catch (err) {
+    host.dataset.state = 'failed';
     console.warn('3D robot unavailable, using SVG fallback.', err);
   }
 }
@@ -232,12 +234,12 @@ function init(host) {
   // ---- views ----
   const views = { front: [0, 0.1], side: [-Math.PI / 2, 0.1], back: [Math.PI, 0.1], top: [0.45, 0.8] };
   let mode = 'auto';
-  let target = 0.25;
+  let target = 0.5;
   let dragging = false;
   let lastX = 0;
   let lastY = 0;
-  let pitch = 0.1;
-  let targetPitch = 0.1;
+  let pitch = 0.15;
+  let targetPitch = 0.15;
 
   const setMode = (m) => {
     mode = m;
@@ -282,7 +284,7 @@ function init(host) {
   resize();
   if (fallback) fallback.style.display = 'none';
   if (controls) controls.hidden = false;
-  setMode('auto');
+  mode = 'drag'; // fixed default view; the visitor can drag to look around
 
   // ---- animation ----
   let visible = true;
