@@ -25,7 +25,22 @@ a.btn-solid:hover{filter:brightness(1.12);color:#06231F}
 @keyframes auroraA{0%{transform:translate(0,0) scale(1)}50%{transform:translate(18%,12%) scale(1.15)}100%{transform:translate(8%,-10%) scale(.95)}}
 @keyframes auroraB{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-20%,15%) scale(1.2)}100%{transform:translate(-8%,-8%) scale(1)}}
 @keyframes auroraC{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-25%,-12%) scale(1.25)}100%{transform:translate(20%,-5%) scale(1)}}
-@media (prefers-reduced-motion:reduce){.aurora{animation:none}}
+.rb-float{animation:rbFloat 4s ease-in-out infinite}
+@keyframes rbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.rb-shadow{transform-box:fill-box;transform-origin:center;animation:rbShadow 4s ease-in-out infinite}
+@keyframes rbShadow{0%,100%{transform:scale(1);opacity:.28}50%{transform:scale(.8);opacity:.16}}
+.rb-eye{transform-box:fill-box;transform-origin:center;animation:rbBlink 5s infinite}
+@keyframes rbBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.rb-pulse{animation:rbPulse 2s ease-in-out infinite}
+@keyframes rbPulse{0%,100%{opacity:.65}50%{opacity:1}}
+.rb-ring{transform-box:fill-box;transform-origin:center;animation:rbRing 2s ease-out infinite}
+@keyframes rbRing{0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.35);opacity:0}}
+.rb-wave{transform-box:view-box;transform-origin:236px 172px;animation:rbWave 3s ease-in-out infinite}
+@keyframes rbWave{0%,100%{transform:rotate(0)}15%{transform:rotate(-125deg)}28%{transform:rotate(-105deg)}41%{transform:rotate(-130deg)}54%{transform:rotate(-105deg)}67%{transform:rotate(-125deg)}85%{transform:rotate(0)}}
+.rb-spark{animation:rbSpark 3.5s ease-in-out infinite}
+.rb-s2{animation-delay:.8s}.rb-s3{animation-delay:1.6s}.rb-s4{animation-delay:2.4s}
+@keyframes rbSpark{0%,100%{transform:translateY(0);opacity:.2}50%{transform:translateY(-18px);opacity:1}}
+@media (prefers-reduced-motion:reduce){.aurora,.rb-float,.rb-shadow,.rb-eye,.rb-pulse,.rb-ring,.rb-wave,.rb-spark{animation:none}}
 a.btn-ghost{color:#fff;text-decoration:none;font-weight:600;padding:13px 24px;border-radius:10px;border:1px solid #3A4663;display:inline-block}
 a.btn-ghost:hover{border-color:#fff;color:#fff}
 
@@ -63,9 +78,53 @@ ACCELMATION
 </div>
 </div>
 
-<!-- illustrative assistant panel -->
-<div style="flex:1 1 380px;min-width:0">
-<div style="background:#161E35;border:1px solid #2A3452;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px">
+<!-- robot + illustrative assistant panel -->
+<div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;align-items:center">
+<svg class="rb" viewBox="0 0 320 400" role="img" aria-label="Animated futuristic humanoid robot waving" style="display:block;width:100%;max-width:300px;height:auto;overflow:visible;position:relative;z-index:1">
+<ellipse class="rb-shadow" cx="160" cy="390" rx="72" ry="8" fill="#5EEAD4" opacity="0.25"/>
+<circle class="rb-spark rb-s1" cx="48" cy="120" r="3" fill="#5EEAD4"/>
+<circle class="rb-spark rb-s2" cx="40" cy="250" r="2.5" fill="#5EEAD4"/>
+<circle class="rb-spark rb-s3" cx="282" cy="86" r="3" fill="#5EEAD4"/>
+<circle class="rb-spark rb-s4" cx="292" cy="300" r="2.5" fill="#5EEAD4"/>
+<g class="rb-float">
+<line x1="160" y1="24" x2="160" y2="48" stroke="#5EEAD4" stroke-width="3" stroke-linecap="round"/>
+<circle class="rb-pulse" cx="160" cy="18" r="7" fill="#5EEAD4"/>
+<rect x="98" y="76" width="12" height="30" rx="6" fill="#2A3452"/>
+<rect x="210" y="76" width="12" height="30" rx="6" fill="#2A3452"/>
+<rect x="108" y="48" width="104" height="84" rx="32" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
+<rect x="120" y="66" width="80" height="46" rx="22" fill="#0A0F1E"/>
+<ellipse class="rb-eye" cx="146" cy="89" rx="9" ry="10" fill="#5EEAD4"/>
+<ellipse class="rb-eye" cx="174" cy="89" rx="9" ry="10" fill="#5EEAD4"/>
+<rect x="148" y="132" width="24" height="14" rx="4" fill="#2A3452"/>
+<g>
+<circle cx="84" cy="172" r="17" fill="#2A3452" stroke="#3A4A78" stroke-width="2"/>
+<rect x="70" y="172" width="28" height="68" rx="14" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
+<rect x="72" y="232" width="24" height="54" rx="12" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
+<circle cx="84" cy="294" r="12" fill="#2A3452"/>
+<path d="M84 186v40" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+</g>
+<rect x="96" y="144" width="128" height="124" rx="36" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
+<rect x="124" y="170" width="72" height="58" rx="18" fill="#0A0F1E"/>
+<circle class="rb-ring" cx="160" cy="199" r="22" fill="none" stroke="#5EEAD4" stroke-width="2"/>
+<circle class="rb-pulse" cx="160" cy="199" r="13" fill="#5EEAD4"/>
+<path d="M110 232v26M210 232v26" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="122" y="266" width="76" height="16" rx="8" fill="#2A3452"/>
+<rect x="122" y="280" width="34" height="80" rx="16" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
+<rect x="164" y="280" width="34" height="80" rx="16" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
+<path d="M139 296v44M181 296v44" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+<rect x="112" y="354" width="52" height="22" rx="11" fill="#2A3452"/>
+<rect x="156" y="354" width="52" height="22" rx="11" fill="#2A3452"/>
+<g class="rb-wave">
+<circle cx="236" cy="172" r="17" fill="#2A3452" stroke="#3A4A78" stroke-width="2"/>
+<rect x="222" y="172" width="28" height="68" rx="14" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
+<rect x="224" y="232" width="24" height="54" rx="12" fill="#1B2540" stroke="#3A4A78" stroke-width="2"/>
+<circle cx="236" cy="294" r="12" fill="#2A3452"/>
+<path d="M236 186v40" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+</g>
+</g>
+</svg>
+
+<div style="background:rgba(22,30,53,0.92);border:1px solid #2A3452;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px;width:100%;max-width:440px;margin-top:12px;position:relative;z-index:2">
 <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#AAB3C5">
 <span style="width:8px;height:8px;border-radius:50%;background:#5EEAD4;display:inline-block"></span>
 Business assistant · illustrative
